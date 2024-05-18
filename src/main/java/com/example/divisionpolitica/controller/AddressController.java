@@ -64,8 +64,11 @@ public class AddressController {
         if (existingAddress == null) {
             return ResponseEntity.notFound().build(); //estado 404
         }else{
-            existingAddress.setAddress(updatedAddress.getAddress());
             existingAddress.setPostalCode(updatedAddress.getPostalCode());
+            existingAddress.setDetails(updatedAddress.getState());
+            existingAddress.setStreetType(updatedAddress.getStreetType());
+            existingAddress.setStreetNumber(updatedAddress.getStreetNumber());
+
             Address savedAddress = addressService.save(existingAddress);
             return ResponseEntity.ok(savedAddress); //estado 200
         }

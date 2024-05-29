@@ -14,15 +14,6 @@ public class Address  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (name = "country")
-    private String country;
-
-    @Column(name = "state")
-    private String state;
-
-    @Column(name = "city")
-    private String city;
-
     @Column(name = "streetType")
     private String streetType;
 

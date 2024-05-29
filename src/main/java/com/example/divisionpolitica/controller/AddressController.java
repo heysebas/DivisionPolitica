@@ -11,6 +11,7 @@ import java.util.NoSuchElementException;
 
 @RequestMapping("/api/v1/address")
 @RestController
+@CrossOrigin("*")
 public class AddressController {
 
     @Autowired
@@ -65,9 +66,9 @@ public class AddressController {
             return ResponseEntity.notFound().build(); //estado 404
         }else{
             existingAddress.setPostalCode(updatedAddress.getPostalCode());
-            existingAddress.setDetails(updatedAddress.getState());
             existingAddress.setStreetType(updatedAddress.getStreetType());
             existingAddress.setStreetNumber(updatedAddress.getStreetNumber());
+            existingAddress.setDetails(updatedAddress.getDetails());
 
             Address savedAddress = addressService.save(existingAddress);
             return ResponseEntity.ok(savedAddress); //estado 200

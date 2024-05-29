@@ -1,0 +1,29 @@
+package com.example.divisionpolitica.model.entity;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+import lombok.Data;
+
+@Entity
+@Data
+@Table(name = "Address")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class Address  {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "streetType")
+    private String streetType;
+
+    @Column(name = "streetNumber")
+    private String streetNumber;
+
+    @Column(name = "postalCode")
+    private String postalCode;
+
+    @Column(name = "details")
+    private String details;
+
+}
